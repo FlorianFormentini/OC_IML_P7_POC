@@ -30,23 +30,6 @@ class ChatbotData(Resource):
         return _chatbot_services.get_known_intents()
 
 
-@ns.route('/model')
-class ChatbotModel(Resource):
-    # @apikey_required
-    # @ns.doc(security='apikey')
-    # def get(self):
-    #     """Get the chatbot parameters"""
-    #     return _chatbot_services.get_chatbot_stats()
-
-    @apikey_required
-    @ns.doc(security='apikey')
-    @ns.response(200, 'Success')
-    @ns.response(401, "Wrong API key")
-    def post(self):
-        """New chatbot training"""
-        return _chatbot_services.new_training()
-
-
 @ns.route('/test/<question>')
 class ChatbotTests(Resource):
 
@@ -62,5 +45,4 @@ class ChatbotTests(Resource):
         return _chatbot_services.ask(question)
 
 
-# route pour entrainer model avec nouveaux params (et sauver params)
 # route pour demander les stats du model (data, + params preproc, model, training)

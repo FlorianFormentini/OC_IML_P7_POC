@@ -17,14 +17,6 @@ All features are documented on the `/api` route : https://hera-project.herokuapp
     - `PAGE_ACCESS_TOKEN=[facebook_page_access_token]` - The key to verify the Facebook Page
     - `GOOGLE_APPLICATION_CREDENTIALS=[local_path_to_GC_credentials_json]` - Path to the json file with all Google Cloud credentials
 
-### Database migrations
-`$ flask db init` (only the first time to create the local DB)  
-
-```bash
-$ flask db migrate -m "some migration msg"
-$ flask manage.py db upgrade
-```
-
 
 ### Run the tests
 `$ python manage.py test`
