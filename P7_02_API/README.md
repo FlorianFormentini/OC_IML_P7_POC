@@ -1,4 +1,4 @@
-# [OC-IML-P7 : Chatbot API](https://hera-project.herokuapp.com)
+# [Hera-Project](https://hera-project.herokuapp.com)
 All features are documented on the `/api` route : https://hera-project.herokuapp.com/api/
 ## Run the app (local) :
 
@@ -8,7 +8,7 @@ All features are documented on the `/api` route : https://hera-project.herokuapp
 - To change the app enviromnent, you have to modify two environment variables stored in the **`.flaskenv`** file: `FLASK_ENV` and `HERAPROJECT_ENV`
     - `FLASK_APP=app` - Define the app package, do not change it.
     - `FLASK_ENV : {'development', 'production'}` - Define the app environment. Need to be loaded before the app instance creation.
-    - `HERAPROJECT_ENV : {'dev', 'prod'}` - Used configuration (a third type `'test'` also exist but it's automatically set when testing).
+    - `CONFIG_ENV : {'dev', 'prod'}` - Used configuration (a third type `'test'` also exist but it's automatically set when testing).
 
 
 - You also need to create a **`.env`** file containing thes environnment variables :
@@ -16,6 +16,14 @@ All features are documented on the `/api` route : https://hera-project.herokuapp
     - `FB_VERIFY_TOKEN=[facebook_verify_token]` - The key to verify the Facebook App
     - `PAGE_ACCESS_TOKEN=[facebook_page_access_token]` - The key to verify the Facebook Page
     - `GOOGLE_APPLICATION_CREDENTIALS=[local_path_to_GC_credentials_json]` - Path to the json file with all Google Cloud credentials
+
+### Database migrations
+`$ flask db init` (only the first time to create the local DB)  
+
+```bash
+$ flask db migrate -m "some migration msg"
+$ flask manage.py db upgrade
+```
 
 
 ### Run the tests

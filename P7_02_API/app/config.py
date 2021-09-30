@@ -15,14 +15,6 @@ class Config(object):
 
     # Database
     MONGODB_HOST = os.getenv('MONGODB_URI', 'localhost:27017')
-    # MONGO_SETTINGS = {
-    #     'db': 'HeraProjectDB',
-    #     'username': 'Flooow',
-    #     'password': 'Demoniark54!',
-    #     'host': os.getenv('MONGODB_URI',
-    #                       'localhost:27017'),
-    #     'connect': True,  # open connection : if true on app init, else on first db access
-    # }
 
     # File upload
     ALLOWED_EXT = {'jpg', 'png', 'jpeg', 'json'}
@@ -37,27 +29,15 @@ class Config(object):
     TELEGRAM_BOT_TOKEN = os.getenv('TELEGRAM_TOKEN')
     TELEGRAM_BOT_URL = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}"
 
-    # GoogleCloudPlatform
-    GOOGLE_APPLICATION_CREDENTIALS = os.getenv(
-        'GOOGLE_APPLICATION_CREDENTIALS')
-    CLOUD_STORAGE_BUCKET = 'heraproject-us'
+    # # GoogleCloudPlatform
+    # GOOGLE_APPLICATION_CREDENTIALS = os.getenv(
+    #     'GOOGLE_APPLICATION_CREDENTIALS')
+    # CLOUD_STORAGE_BUCKET = 'heraproject-us'
 
     # Chatbot
     CHATBOT_PATH = {
         'vectorizer_responses': 'app/static/fitted-preprocessor.pkl',
         'model': 'app/static/fitted-model.h5'
-    }
-    MODEL_PARAMS = {
-        'n_layers': 3,
-        'units': 256,
-        'dropout': .3,
-        'loss': 'categorical_crossentropy',
-        'metrics': ['accuracy']
-    }
-    TRAINING_PARAMS = {
-        'epochs': 500,
-        'batch_size': 2,
-        'verbose': 1
     }
     PRED_THRESHOLD = .6
 

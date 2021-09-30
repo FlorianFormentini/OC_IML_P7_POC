@@ -4,3 +4,7 @@
 # Notebook requirements
 livelossplot
 matplotlib
+
+
+Keras-Preprocessing==1.1.2
+pandas==1.2.4

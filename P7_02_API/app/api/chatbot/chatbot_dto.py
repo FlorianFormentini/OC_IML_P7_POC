@@ -1,4 +1,4 @@
-from flask_restx import Namespace, fields, reqparse, inputs
+from flask_restx import Namespace, fields, reqparse
 from werkzeug.datastructures import FileStorage
 
 
@@ -6,14 +6,22 @@ class ChatbotDTO:
     # Namespace declaration
     ns = Namespace('Chatbot', description='Chatbot management')
 
-    # Output data model
+# ### Data validation ###
+
     chatbot_intents_out = ns.model('message', {
         'tag': fields.String(description='Intents'),
         'patterns': fields.List(fields.String(), description='Intents patterns'),
         'responses': fields.List(fields.String(), description='Intents responses')
     })
 
-    # Requests args
+    event_in = ns.model('event_input', {
+        'id': fields.String(required=False, description='Event identifier'),  # for testing purpose
+        'message': fields.String(description='Received message'),
+    })
+
+# ### Requests params ###
+
+    # Chatbot data upload
     data_upload_args = reqparse.RequestParser()
     data_upload_args.add_argument(
         'json_datafile',
@@ -21,4 +29,3 @@ class ChatbotDTO:
         location='files',
         required=False
     )
-    data_upload_args.add_argument('new_training', type=inputs.boolean, default=False, required=False)

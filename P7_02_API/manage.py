@@ -5,7 +5,7 @@ from flask_script import Manager
 from app import create_app
 
 
-app = create_app(os.getenv('HERAPROJECT_ENV', 'dev'))
+app = create_app(os.getenv('CONFIG_ENV', 'dev'))
 app.app_context().push()
 
 manager = Manager(app)

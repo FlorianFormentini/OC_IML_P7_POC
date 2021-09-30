@@ -1,4 +1,4 @@
 FLASK_ENV=development
-HERAPROJECT_ENV=dev
+CONFIG_ENV=dev
 
 FLASK_APP=app

@@ -1,13 +1,12 @@
-from flask_restx import Namespace, fields, reqparse, inputs
+from flask_restx import Namespace, fields, reqparse
 
 
 class WebhooksDTO:
-    # ### Namespace declaration ###
-    # #############################
+    # Namespace declaration
     ns = Namespace('Webhooks', description='Social Networks webhooks suppport')
 
-    # ### Input data model ###
-    # ########################
+# ### Data validation models ###
+
     # reproduce a simplified facebook data struct whith only fields that will be saved
     fb_att_payload = ns.model('attachment_payload', {
         'url': fields.String(required=True, description='attachment url'),
@@ -45,34 +44,14 @@ class WebhooksDTO:
         'entry': fields.List(fields.Nested(fb_entry), required=True, description='Events batch'),
     })
 
-    # Output data model
-    fb_attachment_out = ns.model('attachment_out', {
-        'type': fields.String(required=True, description='Attachement type'),
-        'url': fields.String(required=True, description='Link'),
-    })
-    event_out = ns.model('event_out', {
-        'id': fields.String(required=True, description='Event identifier'),  # for testing purpose
-        'psid': fields.String(required=True, description='Page sender id'),
-        'recipient_id': fields.String(required=True, description='Id of the recipient page'),
-        'timestamp': fields.Integer(required=True, description='Reception time'),
-        'message': fields.String(description='Received message'),
-        'predicted_intent': fields.String(description='Intent predicted by the chatbot'),
-        'postback': fields.String(description='Received postback'),
-        'attachments': fields.List(fields.Nested(fb_attachment_out), description='List of attachments')
-    })
+# ### Requests params ###
 
-    # ### Requests params ###
-    # #######################
-    # Event creation
-    filterlist_args = reqparse.RequestParser()
-    filterlist_args.add_argument('psid', type=str, required=False)
-    filterlist_args.add_argument('recipient_id', type=str, required=False)
-    filterlist_args.add_argument('messages', type=inputs.boolean, default=False, required=False)
-    filterlist_args.add_argument('postbacks', type=inputs.boolean, default=False, required=False)
-    # filterlist_args.add_argument('csv', type=bool, required=False)
+    # Set Facebook webhook
+    fb_webhook_args = reqparse.RequestParser()
+    fb_webhook_args.add_argument('hub.mode', type=str, required=True)
+    fb_webhook_args.add_argument('hub.verify_token', type=str, required=True)
+    fb_webhook_args.add_argument('hub.challenge', type=int, required=True)
 
-    # Facebook webhook validation
-    fb_verif_webhook = reqparse.RequestParser()
-    fb_verif_webhook.add_argument('hub.mode', type=str, required=True)
-    fb_verif_webhook.add_argument('hub.verify_token', type=str, required=True)
-    fb_verif_webhook.add_argument('hub.challenge', type=int, required=True)
+    # Set/unset Telegram webhook
+    telegram_webhook_args = reqparse.RequestParser()
+    telegram_webhook_args.add_argument('set', type=bool, required=True)

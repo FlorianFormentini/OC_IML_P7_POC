@@ -41,5 +41,5 @@ class BaseDAO:
 
 
 # singleton objects to use eslsewhere in the app
-_event_dao = BaseDAO(Event)
+_events_dao = BaseDAO(Event)
 _chatbot_dao = BaseDAO(ChatbotIntent)

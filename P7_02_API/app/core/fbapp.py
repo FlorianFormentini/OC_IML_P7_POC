@@ -1,9 +1,7 @@
 import requests
 from flask import current_app
-from flask_restx import abort
 
-
-from .chatbot import _chatbot
+from .chatbot import Chatbot
 
 
 class FbApp:
@@ -26,18 +24,18 @@ class FbApp:
         }
         return mapped_event
 
-    @classmethod
-    def callSendAPI(cls, senderPsid, response):
-        """Sends a response to the Facebook API (POST request)
+    @staticmethod
+    def send_fb_message(cls, sender_psid, message):
+        """Sends a response with the Facebook Send API (POST request)
         args:
-            senderPsid (str) - Facebook user PSID
-            response (str) - Response to transmit
+            sender_psid (str) - Facebook user PSID
+            message (str) - Response to transmit
         """
         reqBody = {
             "recipient": {
-                "id": senderPsid
+                "id": sender_psid
             },
-            "message": response
+            "message": message
         }
         # POST request to the Facebook Send API
         r = requests.post(
@@ -46,77 +44,65 @@ class FbApp:
             headers={'Content-Type': 'application/json'},
             json=reqBody
         )
-        if r.status_code != 200:
-            abort(r.status_code, r.text)
-        else:
-            print('Successfully transmitted to the Facebook Send API')
+        return r
 
     @classmethod
-    def handle_message(cls, senderPsid, message):
-        """Computes a response for a Facebook message and return the predicted intent
+    def compute_msg_response(cls, message):
+        """Computes a response for a Facebook message
         args:
             senderPsid (str) - Facebook user PSID
             message (str) - Facebook user input
         returns:
-            (str) - Predicted intent for the user input
+            (str) - Response message
         """
+        # here condition to use integrated bot or Rasa bot
+        chatbot = Chatbot(
+            current_app.config['CHATBOT_PATH']['vectorizer_responses'],
+            current_app.config['CHATBOT_PATH']['model'],
+            current_app.config['PRED_THRESHOLD']
+        )
         print("message = ", message)
-        # Create the payload for a basic text messagewhich will be added to the body of your request to the Send API
-        predicted_intents = _chatbot.predict_intent(message)
+        predicted_intents = chatbot.predict_intent(message)
         print('prediction :', predicted_intents)
-        msg = _chatbot.get_response(predicted_intents[0]['intent'])
+        msg = chatbot.get_response(predicted_intents[0]['intent'])
         response = {
+            "intent": predicted_intents,
             "text": msg
         }
-        # send response message
-        cls.callSendAPI(senderPsid, response)
-        return predicted_intents[0]['intent']
+        return response
 
     @classmethod
-    def handle_attachments(cls, senderPsid):
-        """Computes a response for a Facebook attachement
+    def compute_attachement_response(cls, senderPsid):
+        """Copute a reponse for an attachements without any text message
         args:
             senderPsid (str) - Facebook user PSID
         """
-        attachmentUrl = 'https://i.pinimg.com/originals/ec/6c/85/ec6c85439ea5235614deaaa2f12f4335.png'
+        img_url = 'https://media.giphy.com/media/7rn4LNw0nwewrupGor/giphy.gif'
         response = {
             'attachment': {
                 'type': 'template',
                 'payload': {
                     'template_type': 'generic',
                     'elements': [{
-                        'title': "C'est une belle image !",
-                        'subtitle': "Et que pensez-vous de celle-ci ? c'est moi :)",
-                        'image_url': attachmentUrl,
-                        'buttons': [
-                            {
-                                'type': 'postback',
-                                'title': 'Trop mimi ! :D',
-                                'payload': 'yes',
-                            },
-                            {
-                                'type': 'postback',
-                                'title': 'Euuh...',
-                                'payload': 'no',
-                            }
-                        ],
+                        'title': "Oups ! Je n'ai pas compris...",
+                        'subtitle': "Essayez de me poser une question",
+                        'image_url': img_url,
                     }]
                 }
             }
         }
-        # send response message
-        cls.callSendAPI(senderPsid, response)
+        return response
 
-    @classmethod
-    def handle_postback(cls, senderPsid, postback):
-        """Computes a response for a Facebook attachement
-        args:
-            senderPsid (str) - Facebook user PSID
-            postback (str) - Facebook user postback
-        """
-        payload = postback['payload']
-        if payload == 'yes':
-            resp = {'text': 'Merci :)'}
-        else:
-            resp = {'text': 'Mince ! Montrez-moi en une qui vous plait'}
-        cls.callSendAPI(senderPsid, resp)
+    # @classmethod
+    # def postback_reply(cls, senderPsid, postback):
+    #     """Computes a response for a postback after a facebook form
+    #     args:
+    #         senderPsid (str) - Facebook user PSID
+    #         postback (str) - Facebook user postback
+    #     """
+    #     payload = postback['payload']
+    #     if payload == 'yes':
+    #         resp = {'text': 'Ok ! :)'}
+    #     else:
+    #         resp = {'text': 'Dommage...'}
+    #     cls.callSendAPI(senderPsid, resp)
