@@ -9,7 +9,7 @@ class Config(object):
     TESTING = False
 
     # API
-    API_KEY = os.getenv('API_KEY')
+    SECRET_KEY = 'dev_apikey'
     RESTX_MASK_SWAGGER = True
     ERROR_404_HELP = False  # disable complementary error message when 404
 
@@ -53,6 +53,7 @@ class ProductionConfig(Config):
     """Uses production database server"""
     DEBUG = False
     HOST_URL = os.getenv('PROD_HOST_URL')
+    SECRET_KEY = os.getenv('API_KEY')
 
 
 class TestingConfig(Config):
