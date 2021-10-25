@@ -23,7 +23,7 @@ def apikey_required(f):
     @wraps(f)
     def decorator(*args, **kwargs):
         if 'X-API-KEY' in request.headers:
-            if request.headers.get('X-API-KEY') == current_app.config['API_KEY']:
+            if request.headers.get('X-API-KEY') == current_app.config['SECRET_KEY']:
                 return f(*args, **kwargs)
             else:
                 abort(401, 'Token is invalid')

@@ -2,7 +2,7 @@ version: "3.8"
 services:
   app:
     build: .
-    command: python manage.py run
+    command: python -m flask run
     ports:
       - "5000:5000"
     volumes:

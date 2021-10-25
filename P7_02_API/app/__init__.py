@@ -1,12 +1,13 @@
+import os
 from flask import Flask
 
 from .config import config_by_name
 # import flask_monitoringdashboard as dashboard
 
 
-def create_app(config_name='dev') -> Flask:
+def create_app(config_name=os.getenv('CONFIG_ENV', 'dev')) -> Flask:
     """Create and configure the app instance"""
-
+    print("config", config_name)
     app = Flask(__name__, instance_relative_config=False, template_folder='./homepage/templates', static_folder='./homepage/static')
     # load config
     app.config.from_object(config_by_name[config_name])
