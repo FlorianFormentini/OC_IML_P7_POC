@@ -1,1 +1,13 @@
-P7_03_data/
+# IDE 
+**/.vscode
+**/.ipynb_checkpoints
+
+# Python
+**/__pycache__
+
+# Data
+**/data_beforeManualProccess.json
+
+# API
+/tmp
+.env

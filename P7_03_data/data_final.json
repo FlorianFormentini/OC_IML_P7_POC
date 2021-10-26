@@ -1,0 +1,371 @@
+{
+    "intents": [
+        {
+            "tag": "greeting",
+            "patterns": [
+                "Hi there",
+                "How are you",
+                "Is anyone there?",
+                "Hey",
+                "Hola",
+                "Hello",
+                "Good morning",
+                "start",
+                "hey",
+                "Hello can you help me?",
+                "go"
+            ],
+            "responses": [
+                "Hello 👋\nHow can I help?",
+                "Hey 😄\nWhat can I do for you ?",
+                "Hi ! Do you have questions regarding COVID-19?"
+            ]
+        },
+        {
+            "tag": "goodbye",
+            "patterns": [
+                "Bye",
+                "Bye bye",
+                "See you later",
+                "Goodbye",
+                "It was nice to chat with you, bye",
+                "ciao",
+                "I'm leaving",
+                "I have to go",
+                "No other question"
+            ],
+            "responses": [
+                "See you!",
+                "Have a nice day",
+                "Bye! Come back again soon."
+            ]
+        },
+        {
+            "tag": "thanks",
+            "patterns": [
+                "Thanks",
+                "Thank you",
+                "That's helpful",
+                "Awesome, thanks",
+                "Thanks for helping me"
+            ],
+            "responses": [
+                "Happy to help!",
+                "Any time!",
+                "My pleasure"
+            ]
+        },
+        {
+            "tag": "noanswer",
+            "patterns": [],
+            "responses": [
+                "I can't help you with that yet, but try again later I'm a fast learner 😅"
+            ]
+        },
+        {
+            "tag": "options",
+            "patterns": [
+                "How you could help me?",
+                "What can you do ?",
+                "What help can you provide?",
+                "How you can be helpful?",
+                "What kind of support is offered ?",
+                "what are my options ?",
+                "what services do you provide ?",
+                "I need help"
+            ],
+            "responses": [
+                "I can try to answer your questions regarding COVID-19, do you have one ?"
+            ]
+        },
+
+        {
+            "tag": "covid_def",
+            "patterns": [
+                "What is COVID-19 ?",
+                "What is covid ?",
+                "What is covid19 ?",
+                "What's covid ?",
+                "What's covid 19 ?",
+                "What is the virus called covid ?",
+                "What is the virus called covid-19 ?",
+                "What is the virus called covid 19 ?"
+            ],
+            "responses": [
+                "COVID-19 is a disease caused by a virus called SARS-CoV-2. Most people with COVID-19 have mild symptoms, but some people can become severely ill. Although most people with COVID-19 get better within weeks of illness, some people experience post-COVID conditions. Post-COVID conditions are a wide range of new, returning, or ongoing health problems people can experience more than four weeks after first being infected with the virus that causes COVID-19. Older people and those who have certain underlying medical conditions are more likely to get severely ill from COVID-19. Vaccines against COVID-19 are safe and effective."
+            ]
+        },
+        {
+            "tag": "spreading",
+            "patterns": [
+                "How does the virus spread ?",
+                "spread of covid",
+                "spread of covid-19",
+                "how is the covid spread?",
+                "how is the covid diffused?",
+                "diffusion of covid",
+                "covid diffusion",
+                "virus diffusion"               
+            ],
+            "responses": [
+                "COVID-19 spreads when an infected person breathes out droplets and very small particles that contain the virus. These droplets and particles can be breathed in by other people or land on their eyes, noses, or mouth. In some circumstances, they may contaminate surfaces they touch. People who are closer than 6 feet from the infected person are most likely to get infected."
+            ]
+        },
+        {
+            "tag": "community_spread",
+            "patterns": [
+                "What is community spread?",
+                "community spread",
+                "covid community spread",
+                "covid-19 community spread",
+                "definition of community spread",
+                "community spread definition"
+            ],
+            "responses": [
+                "Community spread means people have been infected with the virus in an area, including some who are not sure how or where they became infected. Each health department determines community spread differently based on local conditions. For information on community spread in your area, please visit your local health department’s website."
+            ]
+        },
+        {
+            "tag": "protections",
+            "patterns": [
+                "How can I protect myself ?",
+                "How can I protect myself against covid?",
+                "How can I protect myself against covid-19?"
+            ],
+            "responses": [
+                "Visit this page to learn about how to protect yourself from respiratory illnesses, like COVID-19:\nhttps://www.cdc.gov/coronavirus/2019-ncov/prevent-getting-sick/prevention.html"
+            ]
+        },
+        {
+            "tag": "handwashing",
+            "patterns": [
+                "Should I use soap and water or hand-sanitizer to protect against covid-19?",
+                "Is hand-sanitizer really useful?",
+                "do I have to wash my hands often?",
+                "wash my hands with hand-sanitizer",
+                "wash my hands only with soap",
+                "with what to wash your hands?",
+                "with what can I wash my hands?"
+            ],
+            "responses": [
+                "Handwashing is one of the best ways to protect yourself and your family from getting sick. Wash your hands often with soap and water for at least 20 seconds, especially after blowing your nose, coughing, or sneezing; going to the bathroom; and before eating or preparing food. If soap and water are not readily available, use an alcohol-based hand sanitizer with at least 60% alcohol."
+            ]
+        },
+        {
+            "tag": "has_covid",
+            "patterns": [
+                "What should I do if I get sick or someone in my house gets sick?",
+                "What should I do if I get sick?",
+                "What should I do if someone in my house gets sick?",
+                "What should I do if someone in my house gets sick?",
+                "What should I do if I get the covid?",
+                "What should I do if I get the covid-19?",
+                "I have the coronavirus",
+                "I have the covid-19",
+                "My mother has the covid-19",
+                "My father has the covid-19",
+                "My brother has the covid-19",
+                "My sister has the covid-19",
+                "What can I do if I get the covid-19"
+            ],
+            "responses": [
+                "People who have tested positive for COVID-19 within the past 3 months and recovered do not have to quarantine or get tested again as long as they do not develop new symptoms.\n\nPeople who develop symptoms again within 3 months of their first bout of COVID-19 may need to be tested again if there is no other cause identified for their symptoms.\n\nPeople who have been in close contact with someone who has COVID-19 are not required to quarantine if they have been fully vaccinated against the disease and show no symptoms."
+            ]
+        },
+        {
+            "tag": "has_symptoms",
+            "patterns": [
+                "What are the recommendations for someone who has symptoms of COVID-19?",
+                "I have symptoms of covid-19",
+                "I have symptoms of covid19",
+                "I have symptoms of covid 19",
+                "I may have covid-19",
+                "I think I have covid-19 symptoms",
+                "What can I do if I have symptoms of covid-19?"
+            ],
+            "responses": [
+                "If you are sick with COVID-19 or think you might have COVID-19, follow the steps below to care for yourself and to help protect other people in your home and community.\n - Stay at home (except to get medical care).\n - Separate yourself from others.\n -  Monitor your symptoms.\n - Wear a mask over your nose and mouth when around others.\n - Cover your coughs and sneezes.\n - Wash your hands often.\n - Clean high-touch surfaces every day.\n - Avoid sharing personal household items."
+            ]
+        },
+        {
+            "tag": "childs_risks",
+            "patterns": [
+                "What is the risk of my child becoming sick with COVID-19?",
+                "are children more at risk of having COVID-19?",
+                "what are the risks of covid for children"
+            ],
+            "responses": [
+                "Children can be infected with the virus that causes COVID-19 and can get sick with COVID-19. Most children with COVID-19 have mild symptoms or they may have no symptoms at all (“asymptomatic”). Fewer children have been sick with COVID-19 compared to adults. Babies younger than 1 and children with certain underlying medical conditions may be more likely to have serious illness from COVID-19. Some children have developed a rare but serious disease that is linked to COVID-19 called multisystem inflammatory syndrome (MIS-C)."
+            ]
+        },
+        {
+            "tag": "symptoms",
+            "patterns": [
+                "What are the symptoms and complications that COVID-19 can cause?",
+                "What are the symptoms of covid-19?",
+                "What are the symptoms of covid?",
+                "What are the symptoms of covid 19?",
+                "Can you tell me the symptoms of covid 19?",
+                "Do you know the symptoms of covid 19?"
+            ],
+            "responses": [
+                "People with COVID-19 have reported a wide range of symptoms – from mild symptoms to severe illness. Symptoms may appear 2-14 days after exposure to the virus. If you have fever, cough, or other symptoms, you might have COVID-19."
+            ]
+        },
+        {
+            "tag": "emergency_care",
+            "patterns": [
+                "When should I seek emergency care if I have COVID-19?",
+                "When should I go to the hopital?",
+                "Sould I seef emergency care ?",
+                "Sould I seef emergency care if I have covid-19?",
+                "should I go to the hopital if I have covid-19?"
+            ],
+            "responses": [
+                "Look for emergency warning signs* for COVID-19. If someone is showing any of these signs, seek emergency medical care immediately:\n - Trouble breathing\n - Persistent pain or pressure in the chest\n - New confusion\n - Inability to wake or stay awake\n - Pale, gray, or blue-colored skin, lips, or nail beds, depending on skin tone\n\n*This list is not all possible symptoms. Please call your medical provider for any other symptoms that are severe or concerning to you."
+            ]
+        },
+        {
+            "tag": "home_tests",
+            "patterns": [
+                "Is at-home specimen collection or testing available?",
+                "Can I test myself at home ?",
+                "How to test myself at home ?",
+                "Is there any at-home testing",
+                "at-home testing",
+                "covid test at home"
+            ],
+            "responses": [
+                "At-home testing and collection allow you to collect a specimen at home and either send it to a testing facility or preform the test at home.\nYou and your healthcare provider might consider either an at-home collection kit or an at-home test if you have signs and symptoms of COVID-19 or if you can’t get testing at a local healthcare facility."
+            ]
+        },
+        {
+            "tag": "get_tested",
+            "patterns": [
+                "Should I be tested for a current infection?",
+                "should i get tested?",
+                "do i need to get tested often?",
+                "who needs to be tested?",
+                "when should i test myself",
+                "when should i be tested for covid-19?"
+            ],
+            "responses": [
+                "The following people should get tested for current COVID-19 infection:\n - People who have symptoms of COVID-19.\n - People who have had a known exposure to someone with suspected or confirmed COVID-19. People who have come into close contact with someone with COVID-19 should be tested to check for infection.\n - People not fully vaccinated with COVID-19 vaccine who are prioritized for expanded community screening for COVID-19.\n - People not fully vaccinated with COVID-19 vaccine who have been asked or referred to get testing by their school, workplace, healthcare provider, state, tribal, localexternal icon, or territorial health department."
+            ]
+        },
+        {
+            "tag": "test_neg_but_pos",
+            "patterns": [
+                "Can someone test negative and later test positive on a viral test for COVID-19?",
+                "can i test negative and then positive on another test?",
+                "can i test negative and get covid anyway"
+            ],
+            "responses": [
+                "Yes, it is possible. You may test negative if the sample was collected early in your infection and test positive later during this illness. You could also be exposed to COVID-19 after the test and get infected then. Even if you test negative, you still should take steps to protect yourself and others."
+            ]
+        },
+        {
+            "tag": "contact_tracing",
+            "patterns": [
+                "What is contact tracing?",
+                "How does contact tracing work?",
+                "explain contact tracing",
+                "contact tracing explanations",
+                "contact tracing"
+            ],
+            "responses": [
+                "Contact tracing has been used for decades by state and local health departments to slow or stop the spread of infectious diseases.\nContact tracing slows the spread of COVID-19 by:\n -  Letting people know they may have been exposed to COVID-19 and should monitor their health for signs and symptoms of COVID-19\n - Helping people who may have been exposed to COVID-19 get tested\n - Asking people to self-isolate if they have COVID-19 or self-quarantine if they are a close contact of someone with COVID-19"
+            ]
+        },
+        {
+            "tag": "contact_tracing_data",
+            "patterns": [
+                "What will happen with my personal information during contact tracing?",
+                "contact tracing personnal data",
+                "sensitive data contact tracing",
+                "who can access the contact tracing data?",
+                "can anyone access the contact tracing data?"
+            ],
+            "responses": [
+                "Discussions with health department staff are confidential. This means that your personal and medical information will be kept private and only shared with those who may need to know, like your health care provider.\nIf you have been diagnosed with COVID-19, your name will not be shared with those you came in contact with. The health department will only notify people you were in close contact with that they might have been exposed to COVID-19. Each state and jurisdiction use their own method for collecting and protecting health information."
+            ]
+        },
+        {
+            "tag": "close_contact",
+            "patterns": [
+                "Who is considered a close contact of someone with COVID-19?",
+                "If I am a close contact, will I be tested for COVID-19?",
+                "Am I a close contact?",
+                "close contact?"
+            ],
+            "responses": [
+                "For COVID-19, a close contact is anyone who was within 6 feet of an infected person for a total of 15 minutes or more over a 24-hour period (for example, three individual 5-minute exposures for a total of 15 minutes). An infected person can spread COVID-19 starting from 2 days before they have any symptoms (or, if they are asymptomatic, 2 days before their specimen that tested positive was collected), until they meet the criteria for discontinuing home isolation.\n\nIf you have been in close contact with someone who has COVID-19, you should be tested, even if you do not have symptoms of COVID-19. The health department may be able to provide resources for testing in your area.\nWatch for or monitor your symptoms of COVID-19. If your symptoms worsen or become severe, you should seek medical care."
+            ]
+        },
+        {
+            "tag": "tell_people_around",
+            "patterns": [
+                "I have COVID-19. How do I tell the people I was around?",
+                "Inform my relatives that I have caught the covid",
+                "how to inform my relatives that I have caught the covid?",
+                "tell people around that I have the covid"
+            ],
+            "responses": [
+                "You can call, text, or email your contacts. If you would like to stay anonymous, there is also an online tool that allows you to tell your contacts by sending out emails or text notifications anonymously (www.tellyourcontacts.org)."
+            ]
+        },
+        {
+            "tag": "animals_spread",
+            "patterns": [
+                "Can animals carry the virus that causes COVID-19 on their skin or fur?",
+                "Can I get COVID-19 from my pets or other animals?",
+                "Can wild animals spread the virus that causes COVID-19 to people?"
+            ],
+            "responses": [
+                "Based on the available information to date, the risk of animals spreading COVID-19 to people is considered to be low.\nAlthough we know certain bacteria and fungi can be carried on fur and hair, there is no evidence that viruses, including the virus that causes COVID-19, can spread to people from the skin, fur, or hair of pets.\nTalk to your veterinarian about any health concerns you have about your pets, especially if your pet gets sick after contact with a person with COVID-19. But if you are sick with COVID-19, do not take your pet to the veterinary clinic yourself."
+            ]
+        },
+        {
+            "tag": "hand_sanitizer_pets",
+            "patterns": [
+                "Can I use hand sanitizer on pets?",
+                "Can I use hand sanitizer on my dog?",
+                "Can I use hand sanitizer on my cat?",
+                "Can I use hand sanitizer on animals?",
+                "hand sanitizer on pets",
+                "hand sanitizer on dogs",
+                "hand sanitizer on cats"
+            ],
+            "responses": [
+                "Do not wipe or bathe your pet with chemical disinfectants, alcohol, hydrogen peroxide, or other products, such as hand sanitizer, counter-cleaning wipes, or other industrial or surface cleaners. If you have questions about appropriate products for bathing or cleaning your pet, talk to your veterinarian. If your pet gets hand sanitizer on their skin or fur, rinse or wipe down your pet with water immediately. If your pet ingests hand sanitizer (such as by chewing the bottle) or is showing signs of illness after use, contact your veterinarian or pet poison control immediately. "
+            ]
+        },
+        {
+            "tag": "covid_from_us_bats",
+            "patterns": [
+                "Can bats in United States get the virus that causes COVID-19, and can they spread it back to people?",
+                "covid-19 from us bats",
+                "covid-19 from us bats",
+                "Can bats from the US transmit the virus?",
+                "Can US bats spread the virus?",
+                "Can bats spread the covid-19?",
+                "Can bats spread the covid?"
+            ],
+            "responses": [
+                "Other coronaviruses have been found in North American bats in the past, but there is currently no evidence that the virus that causes COVID-19 is present in bats in the United States. In general, coronaviruses do not cause illness or death in bats, but we don’t yet know if this new coronavirus would make North American species of bats sick. Bats are an important part of natural ecosystems, and their populations are already declining in the United States. Bat populations could be further threatened by the disease itself or by harm inflicted on bats resulting from a misconception that bats are spreading COVID-19. However, there is no evidence that bats in the United States are a source of the virus that causes COVID-19 for people. Further studies are needed to understand if and how bats could be affected by COVID-19."
+            ]
+        },
+        {
+            "tag": "community_mitigation",
+            "patterns": [
+                "What is community mitigation?",
+                "Community mitigation?",
+                "Community mitigation explanations",
+                "Can you explain what is Community mitigation?"
+            ],
+            "responses": [
+                "Community mitigation is a set of actions that people and communities can take to slow the spread of infectious diseases like COVID-19. The goal of community mitigation in areas with local COVID-19 transmission is to slow its spread and to protect all individuals, especially those at increased risk for severe illness, while minimizing the negative impacts of these strategies."
+            ]
+        }
+    ]
+}
